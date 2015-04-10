@@ -5,15 +5,23 @@
     <title>Angular Test</title>
     <link rel="stylesheet" href="bootstrap.min.css">
 </head>
-<body ng-controller="StoreController as store">
+<body ng-controller="StoreController as store" class="panel-body">
     <h1>{{"Hello, Angular"}}</h1>
-    <div ng-repeat="product in store.products">
-        <div ng-hide="product.soldOut" class="well">
-            <h2>{{ product.name }}</h2>
-            <h3>${{ product.price }}</h3>
-            <h4>{{ product.description }}</h4>
-            <button ng-show="product.canPurchase">Add to Cart</button>
-            <hr/>
+    <div ng-repeat="product in store.products" class="pull-left">
+        <div ng-hide="product.soldOut" class="well clearfix col-md-12">
+            <div class="pull-left col-md-6">
+                <h2>{{ product.name }} - {{ product.createdAt|date:'d/M/y H:m:s'}}</h2>
+                <h3>{{ product.price|currency }}</h3>
+                <h4>{{ product.description }}</h4>
+                <button class="btn btn-success" ng-show="product.canPurchase">Add to Cart</button>
+            </div>
+            <div class="gallery clearfix pull-right col-md-6">
+                <ul class="list-group">
+                    <li ng-repeat="image in product.images" class="pull-left list-group-item img-thumbnail">
+                        <img ng-src="{{ image.thumb }}">
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="angular.js"></script>

@@ -9,27 +9,31 @@
                 name: 'Product test 1' + Math.random().toFixed(2),
                 price: (i + ((i + 1) * 0.1)).toFixed(2),
                 description: 'Yes no no yes no no yes Yes no no yes no no yes Yes no no yes no no yes Yes no no yes no no yes Yes no no yes no no yes',
+                spec: 'Intel processor 16.34GHz. 80GHz RAM',
                 soldOut: false,
                 createdAt: new Date(),
                 canPurchase: true,
                 reviews: [
                     {
+                        author: 'John Smith',
                         rating: 1,
-                        comment: 'No non no non no non no non no non no'
+                        comment: 'Very good product. It supplied all my needs!'
                     },
                     {
+                        author: 'Anny love',
                         rating: 3,
-                        comment: 'No non no non no non no non no non no'
+                        comment: 'Oh! I love It. It is so cute!'
                     },
                     {
+                        author: 'Mr. Nice',
                         rating: 5,
-                        comment: 'No non no non no non no non no non no'
+                        comment: 'That is very nice! Really, really nice! I recommend!'
                     }
                 ],
                 images: [
                     {
-                        full: 'http://www.iconarchive.com/download/i7999/hopstarter/soft-scraps/Coin.ico',
-                        thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSooi8pjHSE4ZbhQ3IJ_-4LAEt2LaSW8LzbInQEVGea0hn8y_wj'
+                        full: 'http://images.pcworld.com/news/graphics/161647-intel_core2quad_cpu_original.jpg',
+                        thumb: 'http://images.pcworld.com/news/graphics/161647-intel_core2quad_cpu_original.jpg'
                     },
                     {
                         full: 'http://www.iconarchive.com/download/i7999/hopstarter/soft-scraps/Coin.ico',
@@ -48,6 +52,13 @@
     );
 
     app.controller(
+        'GalleryController',
+        function () {
+            this.current = 0;
+        }
+    );
+
+    app.controller(
         'PanelController',
         function () {
             this.tab = 1;
@@ -55,12 +66,12 @@
             this.selectTab = function (setTab)
             {
                 this.tab = setTab;
-            }
+            };
 
             this.isSelected = function (checkTab)
             {
                 return this.tab === checkTab;
-            }
+            };
         }
     );
 })();

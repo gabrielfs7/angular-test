@@ -32,18 +32,41 @@
                     </div>
                     <div class="panel" ng-show="panel.isSelected(2)">
                         <h4>Specifications</h4>
-                        <blockquote>{{ product.description|limitTo:100 }}...</blockquote>
+                        <blockquote>{{ product.spec }}...</blockquote>
                     </div>
                     <div class="panel" ng-show="panel.isSelected(3)">
                         <h4>Reviews</h4>
-                        <blockquote>{{ product.description|limitTo:100 }}...</blockquote>
+                        <blockquote ng-repeat="review in product.reviews">
+                            <strong>{{ review.rating }} Star(s)</strong>
+                            <cite>By: {{ review.author }}</cite>
+                            <p>
+                            {{ review.comment }}
+                            </p>
+
+                        </blockquote>
+
+                        <form name="reviewForm" class="well">
+                            <h4>Write a review!</h4>
+                            <select class="form-control">
+                                <option value="1">1 Star</option>
+                                <option value="2">2 Stars</option>
+                            </select>
+                            <textarea class="form-control" required="required" placeholder="Type your comment here..."></textarea>
+                            <label>By: </label>
+                            <input class="form-control" type="email" required="required">
+                            <hr/>
+                            <button class="btn btn-success" type="submit">Send Review</button>
+                        </form>
                     </div>
                 </section>
             </div>
-            <div class="gallery clearfix pull-right col-md-6">
+            <div class="gallery clearfix pull-right col-md-6" ng-controller="GalleryController as gallery">
+                <div class="panel" ng-show="product.images.length > 0">
+                    <img ng-src="{{ product.images[gallery.current].full }}">
+                </div>
                 <ul class="list-group">
-                    <li ng-repeat="image in product.images" class="pull-left list-group-item img-thumbnail">
-                        <img ng-src="{{ image.thumb }}">
+                    <li ng-repeat="(key, image) in product.images" class="pull-left list-group-item img-thumbnail" ng-class="{active:gallery.current === key}">
+                        <img ng-src="{{ image.thumb }}" ng-click="gallery.current = key" width="50" height="50">
                     </li>
                 </ul>
             </div>

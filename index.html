@@ -40,21 +40,31 @@
                             <strong>{{ review.rating }} Star(s)</strong>
                             <cite>By: {{ review.author }}</cite>
                             <p>
-                            {{ review.comment }}
+                                {{ review.comment }}
                             </p>
-
                         </blockquote>
-
                         <form name="reviewForm" class="well">
+                            <blockquote>
+                                <strong>{{ review.rating }} Star(s)</strong>
+                                <cite>By: {{ review.author }}</cite>
+                                <p>
+                                    {{ review.comment }}
+                                </p>
+                            </blockquote>
+
                             <h4>Write a review!</h4>
-                            <select class="form-control">
-                                <option value="1">1 Star</option>
-                                <option value="2">2 Stars</option>
+                            <select class="form-control" ng-model="review.rating" ng-options="stars for stars in [1,2,3,4,5]">
+                                <option value="">Choose your rating...</option>
                             </select>
-                            <textarea class="form-control" required="required" placeholder="Type your comment here..."></textarea>
+                            <textarea class="form-control" ng-model="review.comment" required="required" placeholder="Type your comment here..."></textarea>
                             <label>By: </label>
-                            <input class="form-control" type="email" required="required">
+                            <input class="form-control" type="email" ng-model="review.author" required="required">
+                            <br/>
+                            <input type="radio" ng-model="review.color" type="radio" value="red"> Red
+                            <input type="radio" ng-model="review.color" type="radio" value="blue"> Blue
+                            <input type="radio" ng-model="review.color" type="radio" value="green"> Green
                             <hr/>
+                            <input type="checkbox" ng-model="review.terms"> I agree to the terms
                             <button class="btn btn-success" type="submit">Send Review</button>
                         </form>
                     </div>

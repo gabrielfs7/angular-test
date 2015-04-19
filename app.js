@@ -17,17 +17,23 @@
                     {
                         author: 'John Smith',
                         rating: 1,
-                        comment: 'Very good product. It supplied all my needs!'
+                        comment: 'Very good product. It supplied all my needs!',
+                        color: 'blue',
+                        terms: true
                     },
                     {
                         author: 'Anny love',
                         rating: 3,
-                        comment: 'Oh! I love It. It is so cute!'
+                        comment: 'Oh! I love It. It is so cute!',
+                        color: 'red',
+                        terms: true
                     },
                     {
                         author: 'Mr. Nice',
                         rating: 5,
-                        comment: 'That is very nice! Really, really nice! I recommend!'
+                        comment: 'That is very nice! Really, really nice! I recommend!',
+                        color: 'green',
+                        terms: true
                     }
                 ],
                 images: [

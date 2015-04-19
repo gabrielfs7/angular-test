@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Angular Test</title>
     <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
 </head>
 <body ng-controller="StoreController as store" class="panel-body">
     <h1 class="page-header">{{"Angular's Store"}}</h1>
@@ -38,7 +39,7 @@
                         <h4>Reviews</h4>
                         <blockquote ng-repeat="review in product.reviews">
                             <strong>{{ review.rating }} Star(s)</strong>
-                            <cite>By: {{ review.author }}</cite>
+                            <cite>By: {{ review.author }} on {{ review.createdOn|date }}</cite>
                             <p>
                                 {{ review.comment }}
                             </p>
@@ -46,7 +47,8 @@
                         <form name="reviewForm"
                               class="well"
                               ng-controller="ReviewController as reviewCtrl"
-                              ng-submit="reviewCtrl.addReview(product)">
+                              ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)"
+                              novalidate>
                             <blockquote>
                                 <strong>{{ reviewCtrl.review.rating }} Star(s)</strong>
                                 <cite>By: {{ reviewCtrl.review.author }}</cite>
@@ -54,21 +56,41 @@
                                     {{ reviewCtrl.review.comment }}
                                 </p>
                             </blockquote>
-
                             <h4>Write a review!</h4>
-                            <select class="form-control" ng-model="reviewCtrl.review.rating" ng-options="stars for stars in [1,2,3,4,5]">
+                            <select
+                                class="form-control"
+                                ng-model="reviewCtrl.review.rating"
+                                ng-options="stars for stars in [1,2,3,4,5]"
+                                required>
                                 <option value="">Choose your rating...</option>
                             </select>
-                            <textarea class="form-control" ng-model="reviewCtrl.review.comment" required="required" placeholder="Type your comment here..."></textarea>
-                            <label>By: </label>
-                            <input class="form-control" type="email" ng-model="reviewCtrl.review.author" required="required">
+                            <br/>
+                            <textarea
+                                class="form-control"
+                                ng-model="reviewCtrl.review.comment"
+                                placeholder="Type your comment here..."
+                                required></textarea>
+                            <br/>
+                            <input
+                                placeholder="Type your e-mail..."
+                                class="form-control"
+                                type="email"
+                                ng-model="reviewCtrl.review.author"
+                                required>
                             <br/>
                             <input type="radio" ng-model="reviewCtrl.review.color" type="radio" value="red"> Red
                             <input type="radio" ng-model="reviewCtrl.review.color" type="radio" value="blue"> Blue
                             <input type="radio" ng-model="reviewCtrl.review.color" type="radio" value="green"> Green
                             <hr/>
-                            <input type="checkbox" ng-model="reviewCtrl.review.terms"> I agree to the terms
-                            <button class="btn btn-success" type="submit">Send Review</button>
+                            <input
+                                type="checkbox"
+                                ng-model="reviewCtrl.review.terms"
+                                required> I agree to the terms
+                            <br/>
+                            <div class="alert alert-info">
+                                Review for is {{ reviewForm.$valid }}
+                            </div>
+                            <button ng-show="reviewForm.$valid" class="btn btn-success" type="submit">Send Review</button>
                         </form>
                     </div>
                 </section>

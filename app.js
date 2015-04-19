@@ -19,21 +19,24 @@
                         rating: 1,
                         comment: 'Very good product. It supplied all my needs!',
                         color: 'blue',
-                        terms: true
+                        terms: true,
+                        createdOn: Date.now()
                     },
                     {
                         author: 'Anny love',
                         rating: 3,
                         comment: 'Oh! I love It. It is so cute!',
                         color: 'red',
-                        terms: true
+                        terms: true,
+                        createdOn: Date.now()
                     },
                     {
                         author: 'Mr. Nice',
                         rating: 5,
                         comment: 'That is very nice! Really, really nice! I recommend!',
                         color: 'green',
-                        terms: true
+                        terms: true,
+                        createdOn: Date.now()
                     }
                 ],
                 images: [
@@ -71,6 +74,7 @@
 
             this.addReview = function (product)
             {
+                this.createdOn = Date.now();
                 product.reviews.push(this.review);
                 this.review = {};
             }

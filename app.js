@@ -6,11 +6,16 @@
         [
             '$http',
             function ($http) {
-                this.products = [];
-
                 var store = this;
 
-                $http.get('api/products.json').success(
+                store.products = [];
+
+                $http(
+                    {
+                        method: 'GET',
+                        url: 'api/products.json'
+                    }
+                ).success(
                     function (data) {
                         store.products = data;
                     }
@@ -27,7 +32,9 @@
             this.addReview = function (product)
             {
                 this.createdOn = Date.now();
+
                 product.reviews.push(this.review);
+
                 this.review = {};
             }
         }

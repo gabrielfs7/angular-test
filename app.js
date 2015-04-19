@@ -61,13 +61,6 @@
     );
 
     app.controller(
-        'GalleryController',
-        function () {
-            this.current = 0;
-        }
-    );
-
-    app.controller(
         'ReviewController',
         function () {
             this.review = {};
@@ -98,6 +91,27 @@
 
                     this.isSelected = function (checkTab) {
                         return this.tab === checkTab;
+                    };
+                }
+            };
+        }
+    );
+
+    app.directive(
+        'productGallery',
+        function ()
+        {
+            return {
+                restrict: 'E',
+                templateUrl: 'product-gallery.html',
+                controllerAs: 'gallery',
+                controller: function ()
+                {
+                    this.current = 0;
+
+                    this.setCurrent = function(imageNumber)
+                    {
+                        this.current = imageNumber || 0;
                     };
                 }
             };

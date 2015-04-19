@@ -17,16 +17,7 @@
                 <hr/>
                 <product-tabs></product-tabs>
             </div>
-            <div class="gallery clearfix pull-right col-md-6" ng-controller="GalleryController as gallery">
-                <div class="panel" ng-show="product.images.length > 0">
-                    <img ng-src="{{ product.images[gallery.current].full }}">
-                </div>
-                <ul class="list-group">
-                    <li ng-repeat="(key, image) in product.images" class="pull-left list-group-item img-thumbnail" ng-class="{active:gallery.current === key}">
-                        <img ng-src="{{ image.thumb }}" ng-click="gallery.current = key" width="50" height="50">
-                    </li>
-                </ul>
-            </div>
+            <product-gallery></product-gallery>
         </div>
     </div>
     <script type="text/javascript" src="angular.js"></script>

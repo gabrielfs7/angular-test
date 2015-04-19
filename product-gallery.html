@@ -1,0 +1,10 @@
+<div class="gallery clearfix pull-right col-md-6" ng-show="product.images.length > 0">
+    <div class="panel">
+        <img ng-src="{{ product.images[gallery.current].full }}">
+    </div>
+    <ul class="list-group">
+        <li ng-repeat="(key, image) in product.images" class="pull-left list-group-item img-thumbnail" ng-class="{active:gallery.current === key}">
+            <img ng-src="{{ image.thumb }}" ng-click="gallery.setCurrent(key)" width="50" height="50">
+        </li>
+    </ul>
+</div>

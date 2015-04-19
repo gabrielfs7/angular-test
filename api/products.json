@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1,
+        "name": "Product",
+        "price": 2,
+        "description": "Yes no no yes no no yes Yes no no yes no no yes Yes no no yes no no yes Yes no no yes no no yes Yes no no yes no no yes",
+        "spec": "Intel processor 16.34GHz. 80GHz RAM",
+        "soldOut": false,
+        "createdOn": "2015-10-10T23:23:23",
+        "canPurchase": true,
+        "reviews": [
+            {
+                "author": "John Smith",
+                "rating": 1,
+                "comment": "Very good product. It supplied all my needs!",
+                "color": "blue",
+                "terms": true,
+                "createdOn": "2015-10-10T23:23:23"
+            },
+            {
+                "author": "Anny love",
+                "rating": 3,
+                "comment": "Oh! I love It. It is so cute!",
+                "color": "red",
+                "terms": true,
+                "createdOn": "2015-10-10T23:23:23"
+            },
+            {
+                "author": "Mr. Nice",
+                "rating": 5,
+                "comment": "That is very nice! Really, really nice! I recommend!",
+                "color": "green",
+                "terms": true,
+                "createdOn": "2015-10-10T23:23:23"
+            }
+        ],
+        "images": [
+            {
+                "full": "http://images.pcworld.com/news/graphics/161647-intel_core2quad_cpu_original.jpg",
+                "thumb": "http://images.pcworld.com/news/graphics/161647-intel_core2quad_cpu_original.jpg"
+            },
+            {
+                "full": "http://www.iconarchive.com/download/i7999/hopstarter/soft-scraps/Coin.ico",
+                "thumb": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSooi8pjHSE4ZbhQ3IJ_-4LAEt2LaSW8LzbInQEVGea0hn8y_wj"
+            }
+        ]
+    }
+]

@@ -97,4 +97,14 @@
             };
         }
     );
+
+    app.directive(
+        'productDescription',
+        function () {
+            return {
+                restrict: 'A',
+                templateUrl: 'product-description.html'
+            };
+        }
+    );
 })();
